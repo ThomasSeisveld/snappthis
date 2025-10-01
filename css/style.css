@@ -96,22 +96,15 @@
       font-weight: bold;
     }
 
-    .tag {
-      position: absolute;
-      background: purple;
-      color: white;
-      font-size: 12px;
-      padding: 3px 6px;
-      border-radius: 10px;
-      bottom: 40px;
-      left: 10px;
-    }
 
-    /* Responsiveness */
+    /* Responsiveness design medium scherm */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
       }
+      .topbar {
+      display: none ;
+    }
 
       .sidebar {
         flex-direction: row;
