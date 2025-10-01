@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="container">
+    <!-- Sidebar -->
     <div class="sidebar">
       <div class="logo">S!</div>
       <a href="#">Nature</a>
@@ -16,10 +17,14 @@
       <a href="#">Nature</a>
     </div>
 
+    <!-- Main -->
     <div class="main">
       <div class="topbar">
         <button>Favorites</button>
-        <div class="profile">👤</div>
+        <div class="profile" id="profileBtn">👤</div>
+        <div class="profile-menu" id="profileMenu">
+          <button onclick="openPopup()">Login / Signup</button>
+        </div>
       </div>
 
       <div class="gallery">
@@ -44,5 +49,28 @@
       </div>
     </div>
   </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="tabs">
+        <button id="loginTab" class="active" onclick="switchTab('login')">Login</button>
+        <button id="signupTab" onclick="switchTab('signup')">Signup</button>
+      </div>
+      <div id="loginForm" class="form active">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+      </div>
+      <div id="signupForm" class="form">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Repeat Password">
+        <button>Signup</button>
+      </div>
+      <button onclick="closePopup()" style="margin-top:10px;">Cancel</button>
+    </div>
+  </div>
+<script src="data/script.js"></script>
+<script src="data/firebase.js"></script>
 </body>
 </html>
