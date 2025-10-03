@@ -144,7 +144,26 @@
       padding: 8px;
     }
     .form button {
-  margin-top: 10px;
+      margin-top: 10px;
+      background: #f5f5f5;
+      color: #222;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: none;
+      transition: background 0.2s, border 0.2s, color 0.2s;
+}
+.form button:hover {
+  background: #e0e0e0;
+  color: #111;
+  border-color: #888;
+}
+.form button:active {
+  background: #d1d1d1;
+  color: #000;
+  border-color: #666;
     }
     /* Main content */
     .main {
