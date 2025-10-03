@@ -27,6 +27,7 @@ body {
   width: 100%;
 }
 
+/* alle Button styling */
 .btn,
 button,
 .profile-menu button,
@@ -76,7 +77,7 @@ button:active,
   transform: translateY(1px) scale(0.98);
 }
 
-/* Sidebar */
+/* Sidebar styling */
 .sidebar {
   background: #d3d3d3;
   padding: 20px;
