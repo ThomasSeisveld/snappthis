@@ -27,8 +27,8 @@
       width: 100%;
     }
 
-    .btn, button, .profile-menu button, .tabs button, .form button, .topbar button {
-      background: linear-gradient(90deg, #333 0%, #555 100%);
+    .btn, button, .profile-menu button, .tabs button, .topbar button {
+      background:#333;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -41,6 +41,14 @@
       outline: none;
       }
 
+      .form button {
+        width: 100%;
+        border: none;
+      border-radius: 3px;
+      padding: 10px 20px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
     .btn:hover, button:hover, .profile-menu button:hover, .tabs button:hover, .form button:hover, .topbar button:hover {
       background: linear-gradient(90deg, #222 0%, #444 100%);
       box-shadow: 0 4px 16px rgba(30,30,30,0.15);
