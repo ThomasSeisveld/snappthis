@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- fotosets ---
+  // fotosets // Liken is nog niet functioneel
   const photoSets = {
     nature: ['https://picsum.photos/400/250?random=11', 'https://picsum.photos/400/250?random=12', 'https://picsum.photos/400/250?random=13'],
     city: ['https://picsum.photos/400/250?random=21', 'https://picsum.photos/400/250?random=22', 'https://picsum.photos/400/250?random=23'],
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     design: ['https://picsum.photos/400/250?random=61', 'https://picsum.photos/400/250?random=62', 'https://picsum.photos/400/250?random=63']
   };
 
-  // --- Groepen ---
+  // Groepen
   const yourGroups = [
     { name: 'Nature', category: 'nature', likes: 5 },
     { name: 'City', category: 'city', likes: 5 },
