@@ -17,9 +17,7 @@ Met SnappThis kun je:
 
 De focus ligt op eenvoud, samenwerking en een fijne gebruikerservaring.  
 
-foto
-
----
+![alt text](assets/image.png)
 
 ## Kenmerken  
 - Gemaakt met **HTML** en **CSS**  
