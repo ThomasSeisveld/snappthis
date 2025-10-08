@@ -6,6 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
+
 body {
   font-size: 20px;
   line-height: 1.4;
@@ -20,6 +21,17 @@ body {
   flex: 1;
   padding: 20px;
   width: 100%;
+  background-color: rgb(250, 250, 250);
+}
+
+.layout-container {
+  display: flex;
+  
+  overflow: hidden;
+  height: 100vh;
+  @media (max-width: 768px) {
+      flex-direction: column;
+  }
 }
 
 .topbar {
@@ -38,31 +50,24 @@ body {
   margin-left: 10px;
 }
 
-.layout-container {
-  display: flex;
-  background: #d3d3d3;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 1200px;
+.groups-arrow svg {
+  vertical-align: middle;
+}
 
-  @media (max-width: 768px) {
-      flex-direction: column;
-  }
+#sidebarGroups {
+  display: none;
 }
 
 /* Logo bovenaan */
 .sidebar-navigation {
   min-width: 180px;
   max-width: 100%;
-  background: linear-gradient(135deg, #b9b9b9 60%, #d3d3d3 100%);
+  background: #172F3B;
   color: #fff;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-sizing: border-box;
-  border-radius: 6px 0 0 6px;
-  box-shadow: 0 4px 24px rgba(8,27,51,0.08);
   overflow-y: auto;
   /* transition: width 0.8s; */
 }
@@ -87,6 +92,17 @@ body {
 .sidebar-navigation input::placeholder {
   color: #b4c0d0;
 }
+.sidebar-navigation button {
+  background: #0d1f2a;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
 .sidebar-navigation a {
   display: flex;
   align-items: center;
@@ -101,13 +117,14 @@ body {
   font-size: 1rem;
 }
 .sidebar-navigation a:hover {
-  background: #7e7a7a;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   box-shadow: 0 2px 8px rgba(24,123,255,0.10);
+  cursor: pointer;
 }
 .sidebar-navigation a.active {
   background: #fff;
-  color: #7e7a7a;
+  color: #000000;
   font-weight: 700;
   box-shadow: 0 2px 12px rgba(24,123,255,0.12);
 }
@@ -120,7 +137,7 @@ body {
 }
 .sidebar-navigation small {
   font-size: 0.8rem;
-  color: #00258b;
+  color: #9cb3f3;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +187,7 @@ button:active {
   display: block;
   margin: 10px 0;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: bold;
 
   @media (max-width: 768px) {
@@ -197,8 +214,10 @@ nav.profile-menu button {
 
 .btn,
 button {
-  background: #333;
+  background: rgb(51, 51, 51, 0.8);
   color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: none;
   border-radius: 3px;
   padding: 10px 20px;

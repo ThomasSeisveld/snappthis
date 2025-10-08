@@ -1,107 +1,173 @@
-  const profileBtn = document.getElementById("profileBtn");
-    const profileMenu = document.getElementById("profileMenu");
-    const popup = document.getElementById("popup");
-    const loginTab = document.getElementById("loginTab");
-    const signupTab = document.getElementById("signupTab");
-    const loginForm = document.getElementById("loginForm");
-    const signupForm = document.getElementById("signupForm");
+// ==========================
+// 📁 Sidebar categorie-foto wissel
+// ==========================
+document.addEventListener('DOMContentLoaded', () => {
 
-    profileBtn.addEventListener("click", () => {
-      profileMenu.style.display = profileMenu.style.display === "flex" ? "none" : "flex";
-    });
+  // --- fotosets ---
+  const photoSets = {
+    nature: ['https://picsum.photos/400/250?random=11', 'https://picsum.photos/400/250?random=12', 'https://picsum.photos/400/250?random=13'],
+    city: ['https://picsum.photos/400/250?random=21', 'https://picsum.photos/400/250?random=22', 'https://picsum.photos/400/250?random=23'],
+    sport: ['https://picsum.photos/400/250?random=31', 'https://picsum.photos/400/250?random=32', 'https://picsum.photos/400/250?random=33'],
+    reizen: ['https://picsum.photos/400/250?random=41', 'https://picsum.photos/400/250?random=42', 'https://picsum.photos/400/250?random=43'],
+    muziek: ['https://picsum.photos/400/250?random=51', 'https://picsum.photos/400/250?random=52', 'https://picsum.photos/400/250?random=53'],
+    design: ['https://picsum.photos/400/250?random=61', 'https://picsum.photos/400/250?random=62', 'https://picsum.photos/400/250?random=63']
+  };
 
-    function openPopup() {
-      popup.style.display = "flex";
-      profileMenu.style.display = "none";
-    }
-    function closePopup() {
-      popup.style.display = "none";
-    }
+  // --- Groepen ---
+  const yourGroups = [
+    { name: 'Nature', category: 'nature', likes: 5 },
+    { name: 'City', category: 'city', likes: 5 },
+    { name: 'Sport', category: 'sport', likes: 5 },
+    { name: 'Reizen', category: 'reizen', likes: 5 }
+  ];
+  const publicGroups = [
+    { name: 'Muziek', category: 'muziek', likes: 2 },
+    { name: 'Design', category: 'design', likes: 2 }
+  ];
 
-    function switchTab(type) {
-      if (type === "login") {
-        loginTab.classList.add("active");
-        signupTab.classList.remove("active");
-        loginForm.classList.add("active");
-        signupForm.classList.remove("active");
-      } else {
-        signupTab.classList.add("active");
-        loginTab.classList.remove("active");
-        signupForm.classList.add("active");
-        loginForm.classList.remove("active");
-      }
-    }
+  // Sidebar Buttons genereren
+  function generateSidebarButtons(groups, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
 
-// --- Sidebar categorie-foto wissel ---
-const photoSets = {
-  nature: [
-    'https://picsum.photos/400/250?random=11',
-    'https://picsum.photos/400/250?random=12',
-    'https://picsum.photos/400/250?random=13'
-  ],
-  city: [
-    'https://picsum.photos/400/250?random=21',
-    'https://picsum.photos/400/250?random=22',
-    'https://picsum.photos/400/250?random=23'
-  ],
-  sport: [
-    'https://picsum.photos/400/250?random=31',
-    'https://picsum.photos/400/250?random=32',
-    'https://picsum.photos/400/250?random=33'
-  ],
-  reizen: [
-    'https://picsum.photos/400/250?random=41',
-    'https://picsum.photos/400/250?random=42',
-    'https://picsum.photos/400/250?random=43'
-  ],
-  muziek: [
-    'https://picsum.photos/400/250?random=51',
-    'https://picsum.photos/400/250?random=52',
-    'https://picsum.photos/400/250?random=53'
-  ],
-  design: [
-    'https://picsum.photos/400/250?random=61',
-    'https://picsum.photos/400/250?random=62',
-    'https://picsum.photos/400/250?random=63'
-  ]
-};
-function showPhotos(category) {
-  const container = document.getElementById('gallery');
-  container.innerHTML = '';
-
-  if (photoSets[category]) {
-    // Createtitle
-    const titleArticle = document.createElement('article');
-    titleArticle.className = 'gallery-title';
-    const title = document.createElement('h2');
-    title.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-    titleArticle.appendChild(title);
-    container.appendChild(titleArticle);
-
-    // Createphotos
-    photoSets[category].forEach(url => {
-      const article = document.createElement('article');
-      article.className = 'gallery-card';
-      const img = document.createElement('img');
-      img.src = url;
-      img.alt = category + ' photo';
-      img.className = 'gallery-photo';
-      article.appendChild(img);
-
-      const likesDiv = document.createElement('div');
-      likesDiv.className = 'likes';
-      likesDiv.textContent = '+2 Likes';
-      article.appendChild(likesDiv);
-
-      container.appendChild(article);
+    container.innerHTML = '';
+    groups.forEach(group => {
+      const btn = document.createElement('a');
+      btn.className = 'sidebar-btn';
+      btn.dataset.category = group.category;
+      btn.innerHTML = `
+        <img src="${photoSets[group.category][0]}" alt="">
+        <div>
+          <p>${group.name}</p>
+          <small>+${group.likes} Likes</small>
+        </div>
+      `;
+      container.appendChild(btn);
     });
   }
+
+  generateSidebarButtons(yourGroups, 'sidebarGroups');
+  generateSidebarButtons(publicGroups, 'publicGroups');
+
+  //  Tabs Open/Sluit
+ 
+  const sidebarGroups = document.getElementById('sidebarGroups');
+  const publicGroupsEl = document.getElementById('publicGroups');
+  const showGroupsBtn = document.getElementById('showGroupsBtn');
+  const showPublicGroupsBtn = document.getElementById('showPublicGroupsBtn');
+  const groupsArrow = document.getElementById('groupsArrow');
+  const publicGroupsArrow = document.getElementById('publicGroupsArrow');
+
+  let yourGroupsOpen = false;
+  let publicGroupsOpen = false;
+
+  function closeAllTabs() {
+    if (sidebarGroups) sidebarGroups.style.display = 'none';
+    if (groupsArrow) groupsArrow.style.transform = 'rotate(0deg)';
+    if (publicGroupsEl) publicGroupsEl.style.display = 'none';
+    if (publicGroupsArrow) publicGroupsArrow.style.transform = 'rotate(0deg)';
+    yourGroupsOpen = false;
+    publicGroupsOpen = false;
+  }
+
+  if (showGroupsBtn) {
+    showGroupsBtn.addEventListener('click', () => {
+      if (!yourGroupsOpen) {
+        closeAllTabs();
+        sidebarGroups.style.display = 'block';
+        groupsArrow.style.transform = 'rotate(180deg)';
+        yourGroupsOpen = true;
+      } else {
+        closeAllTabs();
+      }
+    });
+  }
+
+  if (showPublicGroupsBtn) {
+    showPublicGroupsBtn.addEventListener('click', () => {
+      if (!publicGroupsOpen) {
+        closeAllTabs();
+        publicGroupsEl.style.display = 'block';
+        publicGroupsArrow.style.transform = 'rotate(180deg)';
+        publicGroupsOpen = true;
+      } else {
+        closeAllTabs();
+      }
+    });
+  }
+
+  // ==========================
+  // 🖼️ Foto’s tonen per categorie
+  // ==========================
+  function showPhotos(category) {
+    const container = document.getElementById('gallery');
+    if (!container || !photoSets[category]) return;
+
+    container.innerHTML = '';
+
+    // Titel
+    const titleArticle = document.createElement('article');
+    titleArticle.className = 'gallery-title';
+    titleArticle.innerHTML = `<h2>${category.charAt(0).toUpperCase() + category.slice(1)}</h2>`;
+    container.appendChild(titleArticle);
+
+    // Foto’s
+    photoSets[category].forEach(url => {
+      const card = document.createElement('article');
+      card.className = 'gallery-card';
+      card.innerHTML = `
+        <img src="${url}" alt="${category} photo" class="gallery-photo">
+        <div class="likes">+2 Likes</div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // ==========================
+  // 🔹 Sidebar Buttons Eventkoppeling
+  // ==========================
+  function updateSidebarBtnEvents() {
+    document.querySelectorAll('.sidebar-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        showPhotos(btn.dataset.category);
+      });
+    });
+  }
+
+  updateSidebarBtnEvents();
+});
+
+// ==========================
+// 👤 Profielmenu + Popup Login/Signup
+// ==========================
+const profileBtn = document.getElementById("profileBtn");
+const profileMenu = document.getElementById("profileMenu");
+const popup = document.getElementById("popup");
+const loginTab = document.getElementById("loginTab");
+const signupTab = document.getElementById("signupTab");
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+
+if (profileBtn) {
+  profileBtn.addEventListener("click", () => {
+    profileMenu.style.display = profileMenu.style.display === "flex" ? "none" : "flex";
+  });
 }
 
-document.querySelectorAll('.sidebar-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const cat = btn.getAttribute('data-category');
-    showPhotos(cat);
-  });
-});
+function openPopup() {
+  popup.style.display = "flex";
+  profileMenu.style.display = "none";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+function switchTab(type) {
+  const isLogin = type === "login";
+  loginTab.classList.toggle("active", isLogin);
+  signupTab.classList.toggle("active", !isLogin);
+  loginForm.classList.toggle("active", isLogin);
+  signupForm.classList.toggle("active", !isLogin);
+}
