@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  generateSidebarButtons(yourGroups, 'sidebarGroups');
+  generateSidebarButtons(yourGroups, 'yourGroups');
   generateSidebarButtons(publicGroups, 'publicGroups');
 
   //  Tabs Open/Sluit
  
-  const sidebarGroups = document.getElementById('sidebarGroups');
+  const yourGroupsEl = document.getElementById('yourGroups');
   const publicGroupsEl = document.getElementById('publicGroups');
   const showGroupsBtn = document.getElementById('showGroupsBtn');
   const showPublicGroupsBtn = document.getElementById('showPublicGroupsBtn');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let publicGroupsOpen = false;
 
   function closeAllTabs() {
-    if (sidebarGroups) sidebarGroups.style.display = 'none';
+  if (yourGroupsEl) yourGroupsEl.style.display = 'none';
     if (groupsArrow) groupsArrow.style.transform = 'rotate(0deg)';
     if (publicGroupsEl) publicGroupsEl.style.display = 'none';
     if (publicGroupsArrow) publicGroupsArrow.style.transform = 'rotate(0deg)';
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showGroupsBtn.addEventListener('click', () => {
       if (!yourGroupsOpen) {
         closeAllTabs();
-        sidebarGroups.style.display = 'block';
+  yourGroupsEl.style.display = 'block';
         groupsArrow.style.transform = 'rotate(180deg)';
         yourGroupsOpen = true;
       } else {
