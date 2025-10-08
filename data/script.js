@@ -1,6 +1,5 @@
-// ==========================
-// 📁 Sidebar categorie-foto wissel
-// ==========================
+// Sidebar categorie-foto wissel
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- fotosets ---
@@ -95,10 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // ==========================
-  // 🖼️ Foto’s tonen per categorie
-  // ==========================
+  // foto's tonen
   function showPhotos(category) {
     const container = document.getElementById('gallery');
     if (!container || !photoSets[category]) return;
@@ -123,9 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ==========================
-  // 🔹 Sidebar Buttons Eventkoppeling
-  // ==========================
+
   function updateSidebarBtnEvents() {
     document.querySelectorAll('.sidebar-btn').forEach(btn => {
       btn.addEventListener('click', e => {
@@ -137,10 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateSidebarBtnEvents();
 });
-
-// ==========================
-// 👤 Profielmenu + Popup Login/Signup
-// ==========================
+// Profiel menu & Inloggen/Registreren popup
 const profileBtn = document.getElementById("profileBtn");
 const profileMenu = document.getElementById("profileMenu");
 const popup = document.getElementById("popup");
