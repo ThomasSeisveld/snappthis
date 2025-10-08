@@ -47,6 +47,10 @@ body {
 .topbar button,
 .topbar .profile {
   margin-left: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .groups-arrow svg {
@@ -105,8 +109,8 @@ body {
 .sidebar-navigation a {
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 0.7rem;
+  width: 180px;
+  gap: 0.5rem;
   padding: 0.7rem 1rem;
   border-radius: 1px;
   text-decoration: none;
