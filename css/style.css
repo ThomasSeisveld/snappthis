@@ -101,13 +101,13 @@ body {
   font-size: 1rem;
 }
 .sidebar-navigation a:hover {
-  background: #187bff;
+  background: #7e7a7a;
   color: #fff;
   box-shadow: 0 2px 8px rgba(24,123,255,0.10);
 }
 .sidebar-navigation a.active {
   background: #fff;
-  color: #187bff;
+  color: #7e7a7a;
   font-weight: 700;
   box-shadow: 0 2px 12px rgba(24,123,255,0.12);
 }
@@ -116,12 +116,13 @@ body {
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #187bff;
+  border: 2px solid #333333;
 }
 .sidebar-navigation small {
   font-size: 0.8rem;
   color: #00258b;
 }
+
 @media (max-width: 768px) {
   .sidebar-navigation {
     width: 100vw;
@@ -152,6 +153,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 button:active {
   background: linear-gradient(90deg, #111 0%, #222 100%);
   box-shadow: 0 1px 4px rgba(30, 30, 30, 0.10);
