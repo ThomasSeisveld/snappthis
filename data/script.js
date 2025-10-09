@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // fotosets // Liken is nog niet functioneel
   const photoSets = {
-    nature: ['https://picsum.photos/400/250?random=11', 'https://picsum.photos/400/250?random=12', 'https://picsum.photos/400/250?random=13'],
-    city: ['https://picsum.photos/400/250?random=21', 'https://picsum.photos/400/250?random=22', 'https://picsum.photos/400/250?random=23'],
-    sport: ['https://picsum.photos/400/250?random=31', 'https://picsum.photos/400/250?random=32', 'https://picsum.photos/400/250?random=33'],
-    reizen: ['https://picsum.photos/400/250?random=41', 'https://picsum.photos/400/250?random=42', 'https://picsum.photos/400/250?random=43'],
-    muziek: ['https://picsum.photos/400/250?random=51', 'https://picsum.photos/400/250?random=52', 'https://picsum.photos/400/250?random=53'],
-    design: ['https://picsum.photos/400/250?random=61', 'https://picsum.photos/400/250?random=62', 'https://picsum.photos/400/250?random=63']
+    nature: ['https://picsum.photos/400/250?random=11', 'https://picsum.photos/400/250?random=12', 'https://picsum.photos/400/250?random=13', 'https://picsum.photos/400/250?random=11', 'https://picsum.photos/400/250?random=12', 'https://picsum.photos/400/250?random=13'],
+    city: ['https://picsum.photos/400/250?random=21', 'https://picsum.photos/400/250?random=22', 'https://picsum.photos/400/250?random=23', 'https://picsum.photos/400/250?random=21', 'https://picsum.photos/400/250?random=22', 'https://picsum.photos/400/250?random=23'],
+    sport: ['https://picsum.photos/400/250?random=31', 'https://picsum.photos/400/250?random=32', 'https://picsum.photos/400/250?random=33', 'https://picsum.photos/400/250?random=31', 'https://picsum.photos/400/250?random=32', 'https://picsum.photos/400/250?random=33'],
+    reizen: ['https://picsum.photos/400/250?random=41', 'https://picsum.photos/400/250?random=42', 'https://picsum.photos/400/250?random=43', 'https://picsum.photos/400/250?random=41', 'https://picsum.photos/400/250?random=42', 'https://picsum.photos/400/250?random=43'],
+    muziek: ['https://picsum.photos/400/250?random=51', 'https://picsum.photos/400/250?random=52', 'https://picsum.photos/400/250?random=53', 'https://picsum.photos/400/250?random=51', 'https://picsum.photos/400/250?random=52', 'https://picsum.photos/400/250?random=53'],
+    design: ['https://picsum.photos/400/250?random=61', 'https://picsum.photos/400/250?random=62', 'https://picsum.photos/400/250?random=63', 'https://picsum.photos/400/250?random=61', 'https://picsum.photos/400/250?random=62', 'https://picsum.photos/400/250?random=63']
   };
 
   // Groepen
